@@ -670,10 +670,10 @@ const SECTIONS = [
   {
     id:'beijing', num:'一', dir:'Beijing',
     en:'Beijing', zh:'北京', theme:'s-beijing',
-    epiZh:'⟨ 北京 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph for the imperial city — replace with your proverb. ⟩',
-    src:'Stage One · The Capital',
-    intro:'⟨ Beijing intro — set the scene at the start of the road: vermilion gates, the weight of dynasties, the first step taken beneath a grey northern sky. Replace this placeholder. ⟩',
+    epiZh:'井底之蛙',
+    epiEn:'La granota en el fons del pou',
+    src:'ESTADI 1 · LA CAPITAL',
+    intro:'"No sabes el poco dinero que tienes hasta ir a Beijing, no sabes el poco poder que tienes hasta ir a Beijing" em va dir una amiga en arribar. Les nostres frases van ser "Beijing et posa en el teu lloc" i "Beijing no necessita amics". Pot ser per tot això és que ens vam trobar amb una ciutat única i vam començar a comprendre com de variat seria el nostre viatje.',
     layout:'monument',
     meta:'Five frames',
     photos:[
@@ -688,10 +688,10 @@ const SECTIONS = [
   {
     id:'xingtai', num:'二', dir:'Xingtai',
     en:'Xingtai', zh:'邢台', theme:'s-xingtai',
-    epiZh:'⟨ 邢台 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph about kinship and the warmth of arriving among friends. Replace. ⟩',
-    src:'Stage Two · Among Friends',
-    intro:'⟨ Xingtai intro — the emotional heart of the road. A near-family welcome, children underfoot, golden afternoon light, laughter that needs no translation. This is where the journey breathes. Replace this placeholder. ⟩',
+    epiZh:'天涯若比邻',
+    epiEn:'Encara que estiguem en l\'altra punta del món, és com ser veins',
+    src:'ESTADI 2 · ENTRE AMICS',
+    intro:'A Xingtai vam trobar la nostra casa que ja no sabíem on estava. Te, el menjar, la canalla, el riu, el "trirrueda", la comunitat, la fábrica, la història,',
     layout:'scatter',
     meta:'A gathering',
     photos:[
@@ -736,10 +736,10 @@ const SECTIONS = [
   {
     id:'xian', num:'三', dir:'Xian',
     en:"Xi'an", zh:'西安', theme:'s-xian',
-    epiZh:'⟨ 西安 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph for the ancient origin of the road — dust, terracotta, ten thousand years. Replace. ⟩',
-    src:'Stage Three · The Origin',
-    intro:'⟨ Xi\'an intro — where the Silk Road first began. Earth the colour of old terracotta, weathered ramparts, the silent ranks of the buried. The oldest air on the journey. Replace this placeholder. ⟩',
+    epiZh:'他山之石，可以攻玉',
+    epiEn:'Les pedres d\'una altra muntanya servixen per pulir el jade propi',
+    src:'ESTADI 3 · ORIGENS',
+    intro:'Vell i nou, per supost. Però tot nou per a nosaltres, els ginjols de tota la vida, la pell de mandarina, l\'espí… i qui sap si els arboços o els gavarrons.',
     layout:'archive',
     meta:'The ancient ground',
     photos:[
@@ -785,10 +785,10 @@ const SECTIONS = [
   {
     id:'hutong', num:'四', dir:'Hutong',
     en:'Hutong', zh:'胡同', theme:'s-hutong',
-    epiZh:'⟨ 胡同 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph for the narrow ways — what the alleys keep, they keep in shadow. Replace. ⟩',
+    epiZh:'柳暗花明又一村',
+    epiEn:'Entre salzes foscos i flors brillants, sorgix una altra aldea',
     src:'Stage Four · The Narrow Ways',
-    intro:'⟨ Hutong intro — the labyrinth between the monuments. Cool blue shadow, a lantern burning at the turn, grey brick worn smooth by a thousand years of passing. Quiet, close, mysterious. Replace this placeholder. ⟩',
+    intro:'Guirigall molest i calma incómoda, poques vegades el terme mig. Cada vegada que entràvem en un Hutong alguna d\'aquestes opcions ens acabava expulsant, com havia de ser. I vam tornar unes quantes vegades.',
     layout:'columns',
     meta:'Between the walls',
     photos:[
@@ -824,10 +824,10 @@ const SECTIONS = [
   {
     id:'temples', num:'五', dir:'Temples',
     en:'Temples', zh:'寺庙', theme:'s-temples',
-    epiZh:'⟨ 寺庙 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph for stillness — incense rises, the bell fades, the silence remains. Replace. ⟩',
+    epiZh:'深山藏古寺',
+    epiEn:'En les profunditats de la muntanya s\'amaga un temple',
     src:'Stage Five · The Stillness',
-    intro:'⟨ Temples intro — where the road slows to a breath. Gold against the dark, haze of incense, the calm symmetry of devotion. More silence than image. Replace this placeholder. ⟩',
+    intro:'',
     layout:'serene',
     meta:'In quiet',
     photos:[
@@ -896,10 +896,10 @@ const SECTIONS = [
   {
     id:'museums', num:'六', dir:'Museums',
     en:'Museums', zh:'博物馆', theme:'s-museums',
-    epiZh:'⟨ 博物馆 epigraph slot — 中文 ⟩',
-    epiEn:'⟨ An epigraph for memory — what the road carried, the hall now keeps. Replace. ⟩',
+    epiZh:'学无止境',
+    epiEn:'L\'aprenentatge és infinit',
     src:'Stage Six · The Keeping',
-    intro:'⟨ Museums intro — the end of the scroll, the dim gallery where the journey is held. Painting and gilded figure lit from the dark, somber and reverent. The road, remembered. Replace this placeholder. ⟩',
+    intro:'',
     layout:'gallery',
     meta:'Spotlit in the dark',
     photos:[
@@ -951,12 +951,12 @@ const ORDER=['beijing','hutong','xingtai','xian','temples','museums'];
 SECTIONS.sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
 const NUMERALS=['一','二','三','四','五','六'];
 const SRC={
-  beijing:'Stage One · The Capital',
-  hutong:'Within Beijing · The Narrow Ways',
-  xingtai:'Stage Two · Among Friends',
-  xian:'Stage Three · The Origin',
-  temples:'Across the Journey · The Stillness',
-  museums:'Across the Journey · The Keeping',
+  beijing:'ESTADI 1 · LA CAPITAL',
+  hutong:'EN BEIJING · ELS CARRERONS',
+  xingtai:'ESTADI 2 · ENTRE AMICS',
+  xian:'ESTADI 3 · ORIGENS',
+  temples:'PER TOT ARREU · LA CALMA',
+  museums:'PER TOT ARREU · CONÈIXER-NOS',
 };
 SECTIONS.forEach((s,i)=>{ s.num=NUMERALS[i]; s.src=SRC[s.id]||s.src; });
 
@@ -1018,11 +1018,11 @@ function buildSection(sec){
         <div class="place-zh reveal" data-stagger style="--d:100ms">${sec.zh}</div>
         <div class="place-en reveal" data-stagger style="--d:200ms">${esc(sec.en)}</div>
         <div class="epigraph reveal" data-stagger style="--d:320ms">
-          <div class="zh ph-copy">${esc(sec.epiZh)}</div>
+          <div class="zh">${esc(sec.epiZh)}</div>
           <div class="en">${esc(sec.epiEn)}</div>
           <div class="src">${esc(sec.src)}</div>
         </div>
-        <p class="intro ph-copy reveal" data-stagger style="--d:440ms">${esc(sec.intro)}</p>
+        ${sec.intro ? `<p class="intro reveal" data-stagger style="--d:440ms">${esc(sec.intro)}</p>` : ''}
       </div>
     </div>
     <div class="gallery">
