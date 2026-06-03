@@ -682,6 +682,7 @@ const SECTIONS = [
       {file:'IMG_0200',w:2560,h:1920},
       {file:'IMG_0206',w:2560,h:1920},
       {file:'IMG_0208',w:2560,h:1920},
+      {file:'IMG_0688',w:2560,h:1920},
     ]
   },
   {
@@ -756,7 +757,6 @@ const SECTIONS = [
       {file:'IMG_0622',w:2560,h:1920},
       {file:'IMG_0636',w:2560,h:1920},
       {file:'IMG_0665',w:2560,h:1920},
-      {file:'IMG_0688',w:2560,h:1920},
       {file:'IMG_0709',w:2560,h:1920},
       {file:'IMG_0440',w:2560,h:1920},
       {file:'IMG_0443',w:2560,h:1920},
@@ -991,12 +991,13 @@ function videoBlock(sec){
    global LIGHTBOX list, so any photo can be opened and stepped through. */
 const LIGHTBOX = [];
 function frame(sec,p){
-  const path=`photos/${sec.dir}/${p.file}.jpg`;
+  const full=`photos/${sec.dir}/${p.file}.jpg`;
+  const thumb=`photos/${sec.dir}/thumbs/${p.file}.jpg`;
   const i=LIGHTBOX.length;
-  LIGHTBOX.push({src:path, en:sec.en, zh:sec.zh, num:sec.num, file:p.file});
+  LIGHTBOX.push({src:full, thumb:thumb, en:sec.en, zh:sec.zh, num:sec.num, file:p.file});
   const ar = (p.w&&p.h)?` style="aspect-ratio:${p.w}/${p.h}"`:'';
   return `<figure class="frame reveal" data-stagger data-i="${i}"${ar}>
-    <img loading="lazy" src="${path}" alt="${esc(sec.en)} — ${esc(String(p.file))}"
+    <img loading="lazy" decoding="async" src="${thumb}" alt="${esc(sec.en)} — ${esc(String(p.file))}"
       onload="this.closest('figure').classList.add('loaded')" onerror="this.style.display='none'">
     <div class="ph"><span class="glyph">${sec.num}</span>
       <span class="fn">${sec.dir}/${esc(String(p.file))}.jpg</span></div>
@@ -1186,11 +1187,15 @@ document.querySelectorAll('.moment video').forEach(v=>vio.observe(v));
         fill=ov.querySelector('.lb-fill');
   let idx=0, isOpen=false;
   const preload=i=>{ const im=new Image(); im.src=LIGHTBOX[mod(i)].src; };
+  let showToken=0;
 
   function show(i){
-    idx=mod(i); const it=LIGHTBOX[idx];
+    idx=mod(i); const it=LIGHTBOX[idx]; const token=++showToken;
     img.classList.remove('in');
-    img.src=it.src; img.alt=it.en+' — '+it.file;
+    img.src=it.thumb; img.alt=it.en+' — '+it.file;   // instant: thumb already cached from the grid
+    const hi=new Image();                            // then upgrade to full-res once it loads
+    hi.onload=()=>{ if(token===showToken) img.src=it.src; };
+    hi.src=it.src;
     numEl.textContent=it.num;
     secEl.innerHTML='<b>'+it.num+'</b>'+esc(it.en)+'<span class="zh">'+esc(it.zh)+'</span>';
     cntEl.textContent=(idx+1)+' / '+N;
